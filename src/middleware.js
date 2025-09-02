@@ -1,10 +1,11 @@
 export async function onRequest(context) {
-  const headers = {}
-  for (const [key, value] of context.request.headers.entries()) {
-    headers[key] = value
+  const incomingHeaders = {};
+  
+  for (const [key, value] of context.request.headers) {
+    incomingHeaders[key] = value;
   }
 
-  return new Response(JSON.stringify(headers, null, 2), {
+  return new Response(JSON.stringify(incomingHeaders, null, 2), {
     status: 200,
     headers: {
       "Content-Type": "application/json",
@@ -14,5 +15,5 @@ export async function onRequest(context) {
       "X-Content-Type-Options": "nosniff",
       "Referrer-Policy": "no-referrer"
     }
-  })
+  });
 }
