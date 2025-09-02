@@ -5,11 +5,12 @@ import sitemap from "@astrojs/sitemap";
 import cloudflare from "@astrojs/cloudflare";
 
 export default defineConfig({
-  site: "https://example.com",
+  site: "https://cftestseptember.uk",
   integrations: [mdx(), sitemap()],
   adapter: cloudflare({
     platformProxy: {
       enabled: true,
     },
   }),
+  middleware: true, // ✅ enable middleware support
 });
